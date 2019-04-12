@@ -1,4 +1,17 @@
-const INITIAL_STATE = [];
+const INITIAL_STATE = [
+  {
+    id: 1,
+    name: "Caquita"
+  },
+  {
+    id: 2,
+    name: "GoPro"
+  },
+  {
+    id: 3,
+    name: "Juego: CupHead"
+  }
+];
 
 export default function shoppingCartReducer(state = INITIAL_STATE, action) {
   switch (action) {
