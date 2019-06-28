@@ -2,13 +2,12 @@ import React, { Component } from "react";
 
 import { connect } from "react-redux";
 
-class Shop extends Component {
+class TheStore extends Component {
   render() {
-    debugger;
     return(
       <div>
         {
-          this.props.storeItems.shoppingCartState.map(function (item) {
+          this.props.storeItems.catalog.map(function (item) {
             return(
               <div>
                 <h1>
@@ -28,4 +27,4 @@ const mapStateToProps = state => ({
   storeItems: state
 });
 
-export default connect(mapStateToProps)(Shop);
+export default connect(mapStateToProps)(TheStore);

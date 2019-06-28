@@ -13,7 +13,7 @@ const INITIAL_STATE = [
   }
 ];
 
-export default function shoppingCartReducer(state = INITIAL_STATE, action) {
+export default function catalogReducer(state = INITIAL_STATE, action) {
   switch (action) {
     case "ADD_ITEM" : {
       return state
