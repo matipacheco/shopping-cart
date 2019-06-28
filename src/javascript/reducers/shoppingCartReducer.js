@@ -1,19 +1,6 @@
-const INITIAL_STATE = [
-  {
-    id: 1,
-    name: "Caquita"
-  },
-  {
-    id: 2,
-    name: "GoPro"
-  },
-  {
-    id: 3,
-    name: "Juego: CupHead"
-  }
-];
+const EMPTY_SHOPPING_CART = [];
 
-export default function catalogReducer(state = INITIAL_STATE, action) {
+export default function shoppingCartReducer(state = EMPTY_SHOPPING_CART, action) {
   switch (action) {
     case "ADD_ITEM" : {
       return state
