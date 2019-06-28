@@ -1,30 +1,44 @@
 import React, { Component } from "react";
-
-import { connect } from "react-redux";
+import { productsUrl } from "../../utils/constants";
 
 class TheStore extends Component {
+  constructor() {
+    super();
+    this.state = {
+      catalog: []
+    }
+  }
+
+  componentDidMount() {
+    fetch(productsUrl)
+      .then(response => {
+        return response.json();
+      })
+      .then(data => {
+        let catalog = data.map((product) => {
+          return(
+            <div key={product.id}>
+              <h1>{ product.Name }</h1>
+            </div>
+          )
+        });
+
+        this.setState({catalog: catalog});
+      })
+      .catch(function(error) {
+        console.log('Error on while fetching:' + error.message);
+      })
+  }
+
   render() {
     return(
       <div>
         {
-          this.props.storeItems.catalog.map(function (item) {
-            return(
-              <div>
-                <h1>
-                  { item.id }
-                </h1>
-                { item.name }
-              </div>
-            )
-          })
+          this.state.catalog
         }
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  storeItems: state
-});
-
-export default connect(mapStateToProps)(TheStore);
+export default TheStore;
