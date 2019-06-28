@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { productsUrl } from "../../utils/constants";
+import { connect } from "react-redux";
 
 class TheStore extends Component {
   constructor() {
@@ -41,4 +42,8 @@ class TheStore extends Component {
   }
 }
 
-export default TheStore;
+const mapStateToProps = state => ({
+  storeItems: state
+});
+
+export default connect(mapStateToProps)(TheStore)
