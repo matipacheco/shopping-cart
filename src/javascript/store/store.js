@@ -3,7 +3,7 @@ import { createStore, combineReducers } from "redux";
 import shoppingCartReducer from "../reducers/shoppingCartReducer";
 
 const reducers = combineReducers({
-  catalog: shoppingCartReducer
+  shoppingCart: shoppingCartReducer
 });
 
 const store = createStore(reducers);

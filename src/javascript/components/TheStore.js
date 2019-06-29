@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { productsUrl } from "../../utils/constants";
-import { connect } from "react-redux";
+import ShopItem from "./ShopItem";
 
-class TheStore extends Component {
+export default class TheStore extends Component {
   constructor() {
     super();
     this.state = {
@@ -18,22 +18,20 @@ class TheStore extends Component {
       .then(data => {
         let catalog = data.map((product) => {
           return(
-            <div key={product.id}>
-              <h1>{ product.Name }</h1>
-            </div>
+            <ShopItem product={product}/>
           )
         });
 
         this.setState({catalog: catalog});
       })
       .catch(function(error) {
-        console.log('Error on while fetching:' + error.message);
+        console.log("Error on while fetching products: " + error.message);
       })
   }
 
   render() {
     return(
-      <div>
+      <div className="container container-s">
         {
           this.state.catalog
         }
@@ -41,9 +39,3 @@ class TheStore extends Component {
     )
   }
 }
-
-const mapStateToProps = state => ({
-  storeItems: state
-});
-
-export default connect(mapStateToProps)(TheStore)

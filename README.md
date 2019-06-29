@@ -56,4 +56,4 @@ Additional commands:
 
 How did I create the app?
 
-    npx create-react-app to-do-list
+    npx create-react-app shopping-cart
