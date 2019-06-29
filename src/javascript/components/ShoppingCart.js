@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 class ShoppingCart extends Component {
   render() {
     return(
-      "holi"
+      this.props.storeItems.shoppingCart.length
     )
   }
 }
