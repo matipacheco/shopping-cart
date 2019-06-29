@@ -18,7 +18,7 @@ export default class TheStore extends Component {
       .then(data => {
         let catalog = data.map((product) => {
           return(
-            <ShopItem product={product}/>
+            <ShopItem key={ product.id } product={product}/>
           )
         });
 
