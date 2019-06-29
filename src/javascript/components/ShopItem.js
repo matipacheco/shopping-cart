@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import store from "../store/store";
 
 export default class ShopItem extends Component {
   render() {
@@ -16,7 +17,16 @@ export default class ShopItem extends Component {
             Price: <b> { this.props.product.Price } </b>
           </p>
 
-          <button className="btn-info"> Add to cart </button>
+          <button className="btn-info"
+                  onClick={ (event) => {
+                    event.preventDefault();
+                    store.dispatch({
+                      type: "ADD_ITEM",
+                      payload: this.props.product
+                    })
+                  }}>
+            Add to cart
+          </button>
         </div>
       </div>
     )
