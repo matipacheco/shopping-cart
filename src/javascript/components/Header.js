@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ShoppingCart from "./ShoppingCart";
 
-class Header extends Component{
+export default class Header extends Component{
   render() {
     return (
       <div className="fixed-top">
@@ -12,5 +12,3 @@ class Header extends Component{
     );
   }
 }
-
-export default Header;

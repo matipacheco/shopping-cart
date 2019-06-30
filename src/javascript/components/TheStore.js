@@ -1,12 +1,14 @@
 import React, { Component } from "react";
 import { productsUrl } from "../../utils/constants";
 import Product from "./Product";
+import PurchaseDetail from "./PurchaseDetail";
 
 export default class TheStore extends Component {
   constructor() {
     super();
     this.state = {
-      catalog: []
+      catalog: [],
+      showShoppingCart: false
     }
   }
 
@@ -22,20 +24,29 @@ export default class TheStore extends Component {
           )
         });
 
-        this.setState({catalog: catalog});
+        this.setState(
+          {
+            catalog: catalog,
+            showShoppingCart: this.toggleShowShoppingCart()
+          }
+        );
       })
       .catch(function(error) {
         console.log("Error on while fetching products: " + error.message);
       })
   }
 
+  toggleShowShoppingCart = () => {
+    this.setState({ showShoppingCart: !this.state.showShoppingCart })
+  };
+
   render() {
     return(
       <div className="container container-s">
         {
-          this.state.catalog.length === 0 ?
-            <h1> No items found </h1>
-            : this.state.catalog
+          !this.state.showShoppingCart ?
+            this.state.catalog
+            : <PurchaseDetail/>
         }
       </div>
     )
