@@ -6,9 +6,7 @@ class Header extends Component{
     return (
       <div className="fixed-top">
         <nav className="navbar navbar-expand-lg bg-light fixed-top" style={{justifyContent: "flex-end"}}>
-          <i className="fas fa-shopping-cart">
-            <ShoppingCart/>
-          </i>
+          <ShoppingCart/>
         </nav>
       </div>
     );

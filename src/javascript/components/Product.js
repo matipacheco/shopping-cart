@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import store from "../store/store";
 
-export default class ShopItem extends Component {
+export default class Product extends Component {
   render() {
     return(
       <div className="card" style={{marginTop: "10px"}}>

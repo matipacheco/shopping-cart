@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { productsUrl } from "../../utils/constants";
-import ShopItem from "./ShopItem";
+import Product from "./Product";
 
 export default class TheStore extends Component {
   constructor() {
@@ -18,7 +18,7 @@ export default class TheStore extends Component {
       .then(data => {
         let catalog = data.map((product) => {
           return(
-            <ShopItem key={ product.id } product={product}/>
+            <Product key={ product.id } product={product}/>
           )
         });
 
@@ -33,7 +33,9 @@ export default class TheStore extends Component {
     return(
       <div className="container container-s">
         {
-          this.state.catalog
+          this.state.catalog.length === 0 ?
+            <h1> No items found </h1>
+            : this.state.catalog
         }
       </div>
     )
